@@ -71,20 +71,4 @@ document.getElementById('body').oncontextmenu = (event) => {
     previousSlide();
 }
 
-
-// const request = new XMLHttpRequest();
-// request.onload = function() {
-//     myVid.src = URL.createObjectURL(r.response);
-//     myVid.play();
-// };
-// if (myVid.canPlayType('video/mp4;codecs="avc1.42E01E, mp4a.40.2"')) {
-//     r.open("GET", "slide.mp4");
-// }
-// else {
-//     r.open("GET", "slide.webm");
-// }
-
-// r.responseType = "blob";
-// r.send();
-
 nextSlide();

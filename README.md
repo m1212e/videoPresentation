@@ -2,6 +2,7 @@
 
 
 VideoPresentation is a tool for designers and creatives to replace PowerPoint or Slides. It's designed for precise and high quality presentations with a focus on animated slides.
+A demo can be found here https://videopresentationdemo.web.app/
 # Features
   - Usage of .jpg and .mp4 files as slides
   - Skipping back and forth between slides

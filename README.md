@@ -39,6 +39,7 @@ Now youll be able to run the application. Just type
 parcel ./index.html
 ```
 and visit http://localhost:1234/ to see your presentation running.
+You can navigate through your presentation by left/right clicking with your mouse.
 
 ### Todos
  - Solving the black flashes between slides

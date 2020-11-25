@@ -107,3 +107,4 @@ slides
 package-lock.json
 .firebaserc
 firebase.json
+.firebase

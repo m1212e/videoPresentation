@@ -3,6 +3,9 @@ import images from './slides/*.jpg';
 
 
 const container = document.getElementById('container');
+const video = document.getElementById('vid') as HTMLVideoElement;
+const src = document.getElementById('src');
+const img = document.getElementById('img');
 
 const content = convertImports(videos).concat(convertImports(images))
     //untersuche nummer
@@ -25,27 +28,30 @@ let contentIndex = -1;
 
 
 
-
 function nextSlide() {
     if (contentIndex + 1 < content.length) {
-        container.innerHTML = composeHTMLTags(content[++contentIndex]);
+        updateElement(content[++contentIndex]);
     }
 }
 
 function previousSlide() {
     if (contentIndex - 1 > -1) {
-        container.innerHTML = composeHTMLTags(content[--contentIndex]);
+        updateElement(content[--contentIndex]);
     }
 }
 
-function composeHTMLTags(path: string) {
-    let ret = 'invalid';
+function updateElement(path: string) {
     if (path.match('.mp4')) {
-        ret = '<video autoplay> <source src="' + path + '" type="video/mp4"></video>'
+        img.hidden = true;
+        video.hidden = false;
+        src.setAttribute('src', path);
+        video.load();
+        video.play();
     } else if (path.match('jpg')) {
-        ret = '<img src="' + path + '">'
+        img.hidden = false;
+        video.hidden = true;
+        img.setAttribute('src', path);
     }
-    return ret;
 }
 
 function convertImports(imp: any) {
@@ -64,5 +70,21 @@ document.getElementById('body').oncontextmenu = (event) => {
     event.preventDefault();
     previousSlide();
 }
+
+
+// const request = new XMLHttpRequest();
+// request.onload = function() {
+//     myVid.src = URL.createObjectURL(r.response);
+//     myVid.play();
+// };
+// if (myVid.canPlayType('video/mp4;codecs="avc1.42E01E, mp4a.40.2"')) {
+//     r.open("GET", "slide.mp4");
+// }
+// else {
+//     r.open("GET", "slide.webm");
+// }
+
+// r.responseType = "blob";
+// r.send();
 
 nextSlide();
